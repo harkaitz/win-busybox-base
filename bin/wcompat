@@ -96,7 +96,8 @@ wcompat_explorer() {
 }
 wcompat_wrapper() {
     echo "Creating $WBINDIR/$1 ..."
-    cat > "$WBINDIR/$1"
+    echo '#!/bin/sh -e' > "$WBINDIR/$1"
+    cat >> "$WBINDIR/$1"
 }
 wcompat_g_exec() {
     if test -n "$SSH_CLIENT"; then
