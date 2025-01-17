@@ -1,9 +1,20 @@
-COMPATIVILITY SCRIPTS - 2 (Windows)
-===================================
+Busybox for Windows Scripts
+===========================
 
-Compativility scripts for MS Windows system administration.
+Some utility scripts for Busybox for Windows.
 
 ## Help
+
+dialog-w
+
+    Usage: dialog-w [DIALOG-CMDS...]
+    
+    Wrapper around dialog(1) for windows. This script downloads dialog
+    if needed and executes it. When sourced it provides:
+    
+      dialog_clear   : Clear screen.
+      dialog_SEL ... : Execute dialog, save result in SEL.
+      dialog ...     : Execute dialog.
 
 wcompat
 
@@ -20,9 +31,20 @@ wcompat
     
     Some compativility functions to be used with the Windows Busybox shell.
 
+wsudo
+
+    Usage: wsudo [-u USER] COMMAND
+    
+    Execute command elevated using the local SSHD server to do the
+    elevation.
+
+wterm
+
+    Usage: wterm [COMMAND]
+
 ## Collaborating
 
-For making bug reports, feature requests and donations visit
+For making bug reports, feature requests, support or consulting visit
 one of the following links:
 
 1. [gemini://harkadev.com/oss/](gemini://harkadev.com/oss/)

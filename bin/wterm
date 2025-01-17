@@ -1,0 +1,24 @@
+#!/bin/sh -e
+##:
+#h: Usage: wterm [COMMAND]
+wterm() {
+    local tmp="$(mktemp)"
+    if test ! -n "$1"; then
+        true
+    else
+        cat >> "${tmp}" <<-EOF
+	cd '$(pwd)'
+	$(export)
+	$*
+	echo '[Type enter]'
+	read ign
+	EOF
+        'cmd' '/C' start "sh.exe" "$(echo "${tmp}" | tr '/' '\\')"
+    fi
+}
+if test @"${SCRNAME:-$(basename "$0")}" = @"wterm"; then
+    case "${1}" in
+        ''|-h|--help) sed -n 's/^ *#h: \{0,1\}//p' "$0";;
+        *)            wterm "$@"; exit 0;;
+    esac
+fi

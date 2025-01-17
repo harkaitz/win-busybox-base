@@ -2,7 +2,7 @@
 .SUFFIXES:
 .PHONY: all clean install check
 all:
-PROJECT   =compat-2
+PROJECT   =win-busybox-base
 VERSION   =1.0.0
 PREFIX    =/usr/local
 BUILDDIR ?=.build
@@ -22,4 +22,6 @@ install: install-sh
 install-sh:
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
 	cp bin/wcompat $(DESTDIR)$(PREFIX)/bin
+	cp bin/wsudo $(DESTDIR)$(PREFIX)/bin
+	cp bin/wterm $(DESTDIR)$(PREFIX)/bin
 ## -- BLOCK:sh --
